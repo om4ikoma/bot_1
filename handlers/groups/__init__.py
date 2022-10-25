@@ -1,0 +1,1 @@
+from .bot_describe import dp

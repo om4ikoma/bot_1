@@ -1,15 +1,11 @@
-from aiogram import Bot, Dispatcher, types
-from aiogram import Bot, Dispatcher, types
-from aiogram.utils import executor
-import logging
+from aiogram import Dispatcher, Bot
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+import asyncio
 
+storage = MemoryStorage()
 from data import config
 
-bot = Bot(token=config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
+loop = asyncio.new_event_loop()
+bot = Bot(token=config.BOT_TOKEN, parse_mode='HTML')
+dp = Dispatcher(bot, loop=loop, storage=MemoryStorage())
 
-
-dp = Dispatcher(bot)
-
-if __name__ == "main":
-    logging.basicConfig(level=logging.INFO)
-    executor.start_polling(skip_updates=True)
