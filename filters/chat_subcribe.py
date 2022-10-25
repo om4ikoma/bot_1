@@ -15,10 +15,10 @@ class IsSubcriber(BoundFilter):
                 subscribed += 1
             else:
                 break
-            else:
+        else:
             if subscribed == len(config.chat_id):
                 return True
-            else:
+
         markup = InlineKeyboardMarkup(row_width=1,
                                       inline_keyboard=[
                                           [
